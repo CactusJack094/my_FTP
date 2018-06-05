@@ -1,35 +1,30 @@
-##
-## EPITECH PROJECT, 2018
-## nm/obj makefile
-## File description:
-## make
-##
+NAME	= server
 
-OB	=	server
+CC	= gcc
 
-CC	=	gcc
-RM	=	rm -f
-CFLAGS	+=	-W -Wall -Werror -Wextra -I ./include/
+RM	= rm -f
 
-OB_SRCS	=	./srcs/server.c	\
-		./srcs/comms1.c	\
-		./srcs/comms2.c	\
-		./srcs/comms3.c	\
-		./srcs/updown.c
+SRCS	= ./srcs/comms1.c \
+	  ./srcs/comms2.c \
+	  ./srcs/comms3.c \
+	  ./srcs/server.c \
+	  ./srcs/updown.c 
 
-OB_OBJS	=	$(OB_SRCS:.c=.o)
+OBJS	= $(SRCS:.c=.o)
 
-all:	obj
-	$(RM) $(OB_OBJS)
+CFLAGS = -I ./include/
+CFLAGS += -Wall -Wextra
 
-obj:	$(OB_OBJS)
-	$(CC) $(OB_OBJS) -o $(OB) $(LDFLAG)
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 clean:
-	$(RM) $(OB_OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(OB)
+	$(RM) $(NAME)
 
 re: fclean all
 

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** PSU_myftp_2017
 ** File description:
-** conncomm
+** comms2
 */
 
 #include "serv.h"
